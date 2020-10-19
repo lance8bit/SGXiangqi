@@ -1,18 +1,19 @@
 package com.example.sgxiangqi;
 
-import com.example.sgxiangqi.Pieces.Piece;
-
 public class Board {
 
-    private Piece[][] board;
+    private Position[][] board;
 
-    public Piece[][] getPositionBoard() {
+    public Board(){
+        board = new Position[9][8];
+    }
+
+    public Position[][] getBoard() {
         return board;
     }
 
-    public void setPositionBoard(Piece[][] board) {
+    public void setBoard(Position[][] board) {
         this.board = board;
     }
-
 
 }

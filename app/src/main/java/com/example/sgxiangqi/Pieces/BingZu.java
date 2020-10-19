@@ -4,4 +4,11 @@ public class BingZu extends Piece {
     public BingZu(boolean side) {
         super(side);
     }
+
+    boolean[][] allowedPositions(){
+
+
+
+        return
+    }
 }

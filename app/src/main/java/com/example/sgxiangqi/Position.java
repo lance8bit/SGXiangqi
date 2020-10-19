@@ -1,9 +1,16 @@
 package com.example.sgxiangqi;
 
+import com.example.sgxiangqi.Pieces.Piece;
+
 public class Position {
 
     private int x_pos;
     private int y_pos;
+    private Piece piece;
+
+    public Position(){
+        piece = new Piece();
+    }
 
     public void setPosicion(int x, int y){
         this.x_pos = x;

@@ -7,6 +7,8 @@ public class Piece {
     private Position position;
     private boolean side;
 
+    public Piece(){}
+
     public Piece(boolean side) {
         this.side = side;
         position = new Position();
