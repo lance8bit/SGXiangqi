@@ -9,9 +9,9 @@ public class Piece {
 
     public Piece(){}
 
-    public Piece(boolean side) {
+    public Piece(boolean side, Position position) {
         this.side = side;
-        position = new Position();
+        this.position =  position;
     }
 
     public Position getPosition() {
@@ -22,7 +22,7 @@ public class Piece {
         this.position = position;
     }
 
-    public boolean isSide() {
+    public boolean getSide() {
         return side;
     }
 

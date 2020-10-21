@@ -6,10 +6,13 @@ public class Position {
 
     private int x_pos;
     private int y_pos;
-    private Piece piece;
 
     public Position(){
-        piece = new Piece();
+    }
+
+    public Position(int y_pos, int x_pos) {
+        this.y_pos = y_pos;
+        this.x_pos = x_pos;
     }
 
     public void setPosicion(int x, int y){
