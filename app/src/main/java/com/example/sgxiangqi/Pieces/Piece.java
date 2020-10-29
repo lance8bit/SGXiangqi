@@ -3,7 +3,6 @@ package com.example.sgxiangqi.Pieces;
 import com.example.sgxiangqi.Position;
 
 public class Piece {
-
     private Position position;
     private boolean side;
 
@@ -29,4 +28,5 @@ public class Piece {
     public void setSide(boolean side) {
         this.side = side;
     }
+
 }

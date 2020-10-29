@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class singletonBoard {
 
     private static singletonBoard newInstance;
-    private Piece[][] board;
+    private ArrayList board;
 
     public static singletonBoard getNewInstance(){
         if(newInstance == null){
@@ -18,16 +18,20 @@ public class singletonBoard {
     }
 
     private singletonBoard(){
-        board = new Piece[9][8]();
-        board[4][0] = new BingZu(true, new Position(4,0));
+        board = new ArrayList<Piece>();
+        board.add(new BingZu(true, new Position(3, 0)));
+        board.add(new BingZu(true, new Position(3, 2)));
+        board.add(new BingZu(true, new Position(3, 4)));
+        board.add(new BingZu(true, new Position(3, 6)));
+        board.add(new BingZu(true, new Position(3, 8)));
+        board.add(new BingZu(true, new Position(6, 0)));
+        board.add(new BingZu(true, new Position(6, 2)));
+        board.add(new BingZu(true, new Position(6, 4)));
+        board.add(new BingZu(true, new Position(6, 6)));
+        board.add(new BingZu(true, new Position(6, 8)));
     }
 
-    public Piece[][] getBoard(){
-        return this.board;
+    public ArrayList<Piece> getBoard() {
+        return board;
     }
-
-    //public void addToListEquipos(Equipos nEquipo){
-        listEquipos.add(nEquipo);
-    }
-
 }
