@@ -66,9 +66,15 @@ public class FragmentXiangQiBoard extends Fragment {
             public void onClick(View view) {
                 boolean isBingzu;
 
-                ArrayList<Piece> curr = singletonBoard.getNewInstance().getBoard();
+                Piece[][] curr = singletonBoard.getNewInstance().getBoard();
+                String id_clicked = getResources().getResourceName(view.getId());
+                String numberOnly = id_clicked.replaceAll("[^0-9]", "");
 
-                Toast.makeText(getContext(), "PIECE " + ((BingZu) curr.get(0)).getLabel() + " : Position X : " + singletonBoard.getNewInstance().getBoard().get(0).getPosition().getX_pos() + " : Position Y : "+singletonBoard.getNewInstance().getBoard().get(0).getPosition().getY_pos(), Toast.LENGTH_SHORT).show();
+                String[] parts = numberOnly.split("");
+                int y_pos = Integer.parseInt(parts[0]);
+                int x_pos = Integer.parseInt(parts[1]);
+
+
             }
 
         });

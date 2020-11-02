@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class singletonBoard {
 
     private static singletonBoard newInstance;
-    private ArrayList board;
+    private Piece[][] board;
 
     public static singletonBoard getNewInstance(){
         if(newInstance == null){
@@ -18,20 +18,24 @@ public class singletonBoard {
     }
 
     private singletonBoard(){
-        board = new ArrayList<Piece>();
-        board.add(new BingZu(true, new Position(3, 0)));
-        board.add(new BingZu(true, new Position(3, 2)));
-        board.add(new BingZu(true, new Position(3, 4)));
-        board.add(new BingZu(true, new Position(3, 6)));
-        board.add(new BingZu(true, new Position(3, 8)));
-        board.add(new BingZu(true, new Position(6, 0)));
-        board.add(new BingZu(true, new Position(6, 2)));
-        board.add(new BingZu(true, new Position(6, 4)));
-        board.add(new BingZu(true, new Position(6, 6)));
-        board.add(new BingZu(true, new Position(6, 8)));
+
+        board = new Piece[8][9];
+
+        board[0][3] = new BingZu(true, new Position(3,0));
+        board[2][3] = new BingZu(true, new Position(3,2));
+        board[4][3] = new BingZu(true, new Position(3,4));
+        board[6][3] = new BingZu(true, new Position(3,6));
+        board[8][3] = new BingZu(true, new Position(3,8));
+
+        board[0][6] = new BingZu(true, new Position(6,0));
+        board[2][6] = new BingZu(true, new Position(6,2));
+        board[4][6] = new BingZu(true, new Position(6,4));
+        board[6][6] = new BingZu(true, new Position(6,6));
+        board[8][6] = new BingZu(true, new Position(6,8));
+
     }
 
-    public ArrayList<Piece> getBoard() {
+    public Piece[][] getBoard() {
         return board;
     }
 }
