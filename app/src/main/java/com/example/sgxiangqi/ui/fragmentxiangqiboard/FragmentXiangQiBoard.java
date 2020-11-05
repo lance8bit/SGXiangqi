@@ -2,6 +2,7 @@ package com.example.sgxiangqi.ui.fragmentxiangqiboard;
 
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,18 +16,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.sgxiangqi.Pieces.BingZu;
-import com.example.sgxiangqi.Pieces.Piece;
 import com.example.sgxiangqi.R;
-import com.example.sgxiangqi.singletonBoard;
 
-import java.util.ArrayList;
-
-public class FragmentXiangQiBoard extends Fragment {
+public class FragmentXiangQiBoard extends Fragment implements View.OnClickListener {
 
     private FragmentXiangQiBoardViewModel mViewModel;
-    private Button button30, button32, button34, button36, button38, button60, button62, button64, button66, button68;
-
     public static FragmentXiangQiBoard newInstance() {
         return new FragmentXiangQiBoard();
     }
@@ -38,47 +32,36 @@ public class FragmentXiangQiBoard extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_xiang_qi_board_fragment, container, false);
 
-        button30 = root.findViewById(R.id.col30);
-        button32 = root.findViewById(R.id.col32);
-        button34 = root.findViewById(R.id.col34);
-        button36 = root.findViewById(R.id.col36);
-        button38 = root.findViewById(R.id.col38);
+        Button grid[][] = new Button[8][9];
+            for(int i = 0; i < grid.length; i++){
+                for(int j = 0; j < grid[i].length; j++){
+                    grid[i][j] = new Button(getContext());
+                    for (int k = 0; k <= 89 ; k++) {
+                        String buttonID = "bt" + k;
+                        int resID = getContext().getResources().getIdentifier(buttonID, "id",getContext().getPackageName());
 
-        button60 = root.findViewById(R.id.col60);
-        button62 = root.findViewById(R.id.col62);
-        button64 = root.findViewById(R.id.col64);
-        button66 = root.findViewById(R.id.col66);
-        button68 = root.findViewById(R.id.col68);
+                        grid[i][j] = root.findViewById(resID);
+                        grid[i][j].setOnClickListener(this);
 
-        button30.setBackgroundResource(R.drawable.ic_black_bingzu);
-        button32.setBackgroundResource(R.drawable.ic_black_bingzu);
-        button34.setBackgroundResource(R.drawable.ic_black_bingzu);
-        button36.setBackgroundResource(R.drawable.ic_black_bingzu);
-        button38.setBackgroundResource(R.drawable.ic_black_bingzu);
-
-        button60.setBackgroundResource(R.drawable.ic_red_bingzu);
-        button62.setBackgroundResource(R.drawable.ic_red_bingzu);
-        button64.setBackgroundResource(R.drawable.ic_red_bingzu);
-        button66.setBackgroundResource(R.drawable.ic_red_bingzu);
-        button68.setBackgroundResource(R.drawable.ic_red_bingzu);
-        button30.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                boolean isBingzu;
-
-                Piece[][] curr = singletonBoard.getNewInstance().getBoard();
-                String id_clicked = getResources().getResourceName(view.getId());
-                String numberOnly = id_clicked.replaceAll("[^0-9]", "");
-
-                String[] parts = numberOnly.split("");
-                int y_pos = Integer.parseInt(parts[0]);
-                int x_pos = Integer.parseInt(parts[1]);
-
-
+                    }
+                }
             }
-
-        });
+            
         return root;
+    }
+
+    @Override
+    public void onClick(View view) {
+        boolean isBingzu;
+        //Piece[][] curr = singletonBoard.getNewInstance().getBoard();
+        String id_clicked = String.valueOf(view.getTag());
+        String numberOnly = id_clicked.replaceAll("[^0-9]", "");
+
+        String[] parts = numberOnly.split("");
+        int y_pos = Integer.parseInt(parts[1]);
+        int x_pos = Integer.parseInt(parts[0]);
+
+        Toast.makeText(getContext(), "X: "+x_pos+" Y: "+y_pos, Toast.LENGTH_SHORT).show();
     }
 
     @Override

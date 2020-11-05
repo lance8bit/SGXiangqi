@@ -12,10 +12,10 @@
         android:id="@+id/tablero"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
         android:background="@drawable/xiangqiboard"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -25,159 +25,181 @@
 
         <LinearLayout
             android:id="@+id/row0"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="18dp">
 
             <Button
-                android:id="@+id/col00"
+                android:id="@+id/bt0"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="24dp" />
+                android:tag="00" />
 
             <Button
-                android:id="@+id/col01"
+                android:id="@+id/bt1"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:tag="10" />
 
             <Button
-                android:id="@+id/col02"
+                android:id="@+id/bt2"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:tag="20" />
 
             <Button
-                android:id="@+id/col03"
+                android:id="@+id/bt3"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:tag="30" />
 
             <Button
-                android:id="@+id/col04"
+                android:id="@+id/bt4"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:tag="40" />
 
             <Button
-                android:id="@+id/col05"
+                android:id="@+id/bt5"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:tag="50" />
 
             <Button
-                android:id="@+id/col06"
+                android:id="@+id/bt6"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:tag="60" />
 
             <Button
-                android:id="@+id/col07"
+                android:id="@+id/bt7"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:tag="70" />
 
             <Button
-                android:id="@+id/col08"
+                android:id="@+id/bt8"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:tag="80" />
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/row1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp">
 
             <Button
-                android:id="@+id/col10"
+                android:id="@+id/bt9"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="24dp" />
+                android:tag="01" />
 
             <Button
-                android:id="@+id/col11"
+                android:id="@+id/bt10"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:tag="11" />
 
             <Button
-                android:id="@+id/col12"
+                android:id="@+id/bt11"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:tag="21" />
 
             <Button
-                android:id="@+id/col13"
+                android:id="@+id/bt12"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:tag="04" />
 
             <Button
-                android:id="@+id/col14"
+                android:id="@+id/bt13"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:tag="05" />
 
             <Button
-                android:id="@+id/col15"
+                android:id="@+id/bt14"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:tag="06" />
 
             <Button
-                android:id="@+id/col16"
+                android:id="@+id/bt15"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:tag="07" />
 
             <Button
-                android:id="@+id/col17"
+                android:id="@+id/bt16"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:tag="08" />
 
             <Button
-                android:id="@+id/col18"
+                android:id="@+id/bt17"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:tag="09" />
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/row2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp">
 
             <Button
-                android:id="@+id/col20"
+                android:id="@+id/bt18"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="24dp" />
+                android:tag="02" />
 
             <Button
-                android:id="@+id/col21"
+                android:id="@+id/bt19"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col22"
+                android:id="@+id/bt20"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col23"
+                android:id="@+id/bt21"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col24"
+                android:id="@+id/bt22"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col25"
+                android:id="@+id/bt23"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col26"
+                android:id="@+id/bt24"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col27"
+                android:id="@+id/bt25"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col28"
+                android:id="@+id/bt26"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
@@ -185,52 +207,54 @@
 
         <LinearLayout
             android:id="@+id/row3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp">
 
             <Button
-                android:id="@+id/col30"
+                android:id="@+id/bt27"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="24dp" />
+                android:tag="03" />
 
             <Button
-                android:id="@+id/col31"
+                android:id="@+id/bt28"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col32"
+                android:id="@+id/bt29"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col33"
+                android:id="@+id/bt30"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col34"
+                android:id="@+id/bt31"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col35"
+                android:id="@+id/bt32"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col36"
+                android:id="@+id/bt33"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col37"
+                android:id="@+id/bt34"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col38"
+                android:id="@+id/bt35"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
@@ -238,52 +262,54 @@
 
         <LinearLayout
             android:id="@+id/row4"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp">
 
             <Button
-                android:id="@+id/col40"
+                android:id="@+id/bt36"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="24dp" />
+                android:tag="04" />
 
             <Button
-                android:id="@+id/col41"
+                android:id="@+id/bt37"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col42"
+                android:id="@+id/bt38"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col43"
+                android:id="@+id/bt39"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col44"
+                android:id="@+id/bt40"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col45"
+                android:id="@+id/bt41"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col46"
+                android:id="@+id/bt42"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col47"
+                android:id="@+id/bt43"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col48"
+                android:id="@+id/bt44"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
@@ -291,52 +317,54 @@
 
         <LinearLayout
             android:id="@+id/row5"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp">
 
             <Button
-                android:id="@+id/col50"
+                android:id="@+id/bt45"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="24dp" />
+                android:tag="05" />
 
             <Button
-                android:id="@+id/col51"
+                android:id="@+id/bt46"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col52"
+                android:id="@+id/bt47"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col53"
+                android:id="@+id/bt48"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col54"
+                android:id="@+id/bt49"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col55"
+                android:id="@+id/bt50"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col56"
+                android:id="@+id/bt51"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col57"
+                android:id="@+id/bt52"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col58"
+                android:id="@+id/bt53"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
@@ -344,52 +372,54 @@
 
         <LinearLayout
             android:id="@+id/row6"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp">
 
             <Button
-                android:id="@+id/col60"
+                android:id="@+id/bt54"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="24dp" />
+                android:tag="06" />
 
             <Button
-                android:id="@+id/col61"
+                android:id="@+id/bt55"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col62"
+                android:id="@+id/bt56"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col63"
+                android:id="@+id/bt57"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col64"
+                android:id="@+id/bt58"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col65"
+                android:id="@+id/bt59"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col66"
+                android:id="@+id/bt60"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col67"
+                android:id="@+id/bt61"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col68"
+                android:id="@+id/bt62"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
@@ -397,52 +427,54 @@
 
         <LinearLayout
             android:id="@+id/row7"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp">
 
             <Button
-                android:id="@+id/col70"
+                android:id="@+id/bt63"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="24dp" />
+                android:tag="07" />
 
             <Button
-                android:id="@+id/col71"
+                android:id="@+id/bt64"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col72"
+                android:id="@+id/bt65"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col73"
+                android:id="@+id/bt66"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col74"
+                android:id="@+id/bt67"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col75"
+                android:id="@+id/bt68"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col76"
+                android:id="@+id/bt69"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col77"
+                android:id="@+id/bt70"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col78"
+                android:id="@+id/bt71"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
@@ -450,52 +482,54 @@
 
         <LinearLayout
             android:id="@+id/row8"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp">
 
             <Button
-                android:id="@+id/col80"
+                android:id="@+id/bt72"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="24dp" />
+                android:tag="08" />
 
             <Button
-                android:id="@+id/col81"
+                android:id="@+id/bt73"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col82"
+                android:id="@+id/bt74"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col83"
+                android:id="@+id/bt75"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col84"
+                android:id="@+id/bt76"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col85"
+                android:id="@+id/bt77"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col86"
+                android:id="@+id/bt78"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col87"
+                android:id="@+id/bt79"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col88"
+                android:id="@+id/bt80"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
@@ -503,52 +537,54 @@
 
         <LinearLayout
             android:id="@+id/row9"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp">
 
             <Button
-                android:id="@+id/col90"
+                android:id="@+id/bt81"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="24dp" />
+                android:tag="09" />
 
             <Button
-                android:id="@+id/col91"
+                android:id="@+id/bt82"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col92"
+                android:id="@+id/bt83"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col93"
+                android:id="@+id/bt84"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col94"
+                android:id="@+id/bt85"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col95"
+                android:id="@+id/bt86"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col96"
+                android:id="@+id/bt87"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col97"
+                android:id="@+id/bt88"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
             <Button
-                android:id="@+id/col98"
+                android:id="@+id/bt89"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
