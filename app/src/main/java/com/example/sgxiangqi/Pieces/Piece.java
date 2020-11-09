@@ -5,6 +5,7 @@ import com.example.sgxiangqi.Position;
 public class Piece {
     private Position position;
     private boolean side;
+    private String label;
 
     public Piece(){}
 
@@ -29,4 +30,11 @@ public class Piece {
         this.side = side;
     }
 
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
 }

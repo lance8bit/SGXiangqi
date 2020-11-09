@@ -4,11 +4,9 @@ import com.example.sgxiangqi.Position;
 
 public class BingZu extends Piece {
 
-    private String label;
-
     public BingZu(boolean side, Position position) {
         super(side, position);
-        this.label = "Bing Zu";
+        super.setLabel("BingZu");
     }
 
     public boolean enemySide(){
@@ -49,10 +47,6 @@ public class BingZu extends Piece {
         }
 
         return possibleMove;
-    }
-
-    public String getLabel() {
-        return label;
     }
 
 }
