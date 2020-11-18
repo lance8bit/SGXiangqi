@@ -6,5 +6,6 @@ import com.example.sgxiangqi.Position;
 public class Shi extends Piece {
     public Shi(boolean side, Position position) {
         super(side, position);
+        super.setLabel("Shi");
     }
 }
