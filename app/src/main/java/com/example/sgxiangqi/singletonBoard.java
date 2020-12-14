@@ -81,9 +81,4 @@ public class singletonBoard {
         return this.board;
     }
 
-    public void movePosition(int x_or, int y_or, int x_new, int y_new){
-        board[x_new][y_new] = board[x_or][y_or];
-        board[x_or][y_or] = null;
-    }
-
 }
