@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.sgxiangqi.ui.fragmentplayers.FragmentPlayers;
 import com.example.sgxiangqi.ui.fragmentxiangqiboard.FragmentXiangQiBoard;
 
 public class FragmentsContainer extends AppCompatActivity {
@@ -14,7 +15,7 @@ public class FragmentsContainer extends AppCompatActivity {
         setContentView(R.layout.fragments_container_activity);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, FragmentXiangQiBoard.newInstance())
+                    .replace(R.id.container, FragmentPlayers.newInstance())
                     .commitNow();
         }
     }

@@ -255,13 +255,30 @@ public class Juego {
     public boolean jugadaMa(int X1, int Y1, int X2, int Y2){
         boolean correcta = false;
 
-        if(X2 == X1 + 1 && Y2 == Y1 + 2 || X2 == X1 - 1 && Y2 == Y1 + 2 || X2 == X1 - 1 && Y2 == Y1 - 2 || X2 == X1 + 1 && Y2 == Y1 - 2 || X2 == X1 + 2 && Y2 == Y1 + 1 || X2 == X1 - 2 && Y2 == Y1 + 1 || X2 == X1 - 2 && Y2 == Y1 - 1 || X2 == X1 + 2 && Y2 == Y1 - 1 ){
-            if(pieces[X1][Y1].getSide() == true){
-                correcta = true;
-            }else if(pieces[X1][Y1].getSide() == false){
-                correcta = true;
+        if(X2 == X1 + 1 && Y2 == Y1 + 2 || X2 == X1 - 1 && Y2 == Y1 + 2 || X2 == X1 - 1 && Y2 == Y1 - 2 || X2 == X1 + 1 && Y2 == Y1 - 2 ){
+            if(pieces[X2][Y2] != null){
+                if(pieces[X1][Y1].getSide() != pieces[X2][Y2].getSide()){
+                    if(X2 == X1 + 1){
+                        if(pieces[X1][Y2 - 1] == null){
+                            correcta = true;
+                        }
+                    } else if(X2 == X1 - 1){
+                        if(pieces[X1][Y2 - 1] == null){
+                            correcta = true;
+                        }
+                    }
+                }
+            } else {
+                if(X2 == X1 + 1){
+                    if(pieces[X1][Y2 - 1] == null){
+                        correcta = true;
+                    }
+                } else if(X2 == X1 - 1){
+                    if(pieces[X1][Y2 - 1] == null){
+                        correcta = true;
+                    }
+                }
             }
-            correcta = true;
         }
 
         return correcta;
