@@ -2,7 +2,6 @@ package com.example.sgxiangqi.ui.fragmentxiangqiboard;
 
 import androidx.lifecycle.ViewModelProviders;
 
-import android.content.res.Resources;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,9 +15,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.sgxiangqi.Juego;
 import com.example.sgxiangqi.Pieces.BingZu;
 import com.example.sgxiangqi.Pieces.Piece;
-import com.example.sgxiangqi.Position;
 import com.example.sgxiangqi.R;
 import com.example.sgxiangqi.singletonBoard;
 
@@ -32,8 +31,7 @@ public class FragmentXiangQiBoard extends Fragment implements View.OnClickListen
     }
     private Piece[][] board;
     private ArrayList<Button> grid;
-    private int count = 0, x_sel, y_sel;
-    private boolean move;
+    public Juego juego;
 
     @Nullable
     @Override
@@ -41,6 +39,10 @@ public class FragmentXiangQiBoard extends Fragment implements View.OnClickListen
                              @Nullable Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_xiang_qi_board_fragment, container, false);
+
+        juego = new Juego();
+
+        Log.i("TURNO", "turno: " + juego.getTurno());
 
         grid = new ArrayList<Button>();
         board = singletonBoard.getNewInstance().getBoard();
@@ -62,20 +64,15 @@ public class FragmentXiangQiBoard extends Fragment implements View.OnClickListen
     public void onClick(View view) {
 
         String id_clicked = String.valueOf(view.getTag());
-        String numberOnly = id_clicked.replaceAll("[^0-9]", "");
+        //String numberOnly = id_clicked.replaceAll("[^0-9]", "");
 
-        String[] parts = numberOnly.split("");
+        String[] parts = id_clicked.split("");
         int y_pos = Integer.parseInt(parts[1]);
         int x_pos = Integer.parseInt(parts[0]);
 
-        if(board[x_pos][y_pos] != null){
-            //Toast.makeText(getContext(), "OBJ X:" + board[x_pos][y_pos].getPosition().getX_pos() + " OBJ Y:"+board[x_pos][y_pos].getPosition().getY_pos(), Toast.LENGTH_SHORT).show();
-            Toast.makeText(getContext(), "PIECE: "+ board[x_pos][y_pos].getLabel() , Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(getContext(), "EMPTY CELL", Toast.LENGTH_SHORT).show();
-        }
+        juego.jugada(x_pos, y_pos);
 
-        pos(x_pos, y_pos);
+        setBackgrounds();
     }
 
     @Override
@@ -159,16 +156,4 @@ public class FragmentXiangQiBoard extends Fragment implements View.OnClickListen
         }
     }
 
-    public void pos(int xs, int ys){
-        if(move){
-            board[xs][ys] = board[x_sel][y_sel];
-            board[x_sel][y_sel] = null;
-            setBackgrounds();
-            move = false;
-        } else {
-            x_sel = xs;
-            y_sel = ys;
-            move = true;
-        }
-    }
 }

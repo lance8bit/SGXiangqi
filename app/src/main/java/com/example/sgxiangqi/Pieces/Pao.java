@@ -4,8 +4,8 @@ import com.example.sgxiangqi.Position;
 
 public class Pao extends Piece {
 
-    public Pao(boolean side, Position position) {
-        super(side, position);
+    public Pao(boolean side) {
+        super(side);
         super.setLabel("Pao");
     }
 

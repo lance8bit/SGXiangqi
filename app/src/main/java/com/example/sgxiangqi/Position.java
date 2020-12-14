@@ -10,9 +10,9 @@ public class Position {
     public Position(){
     }
 
-    public Position(int y_pos, int x_pos) {
-        this.y_pos = y_pos;
+    public Position(int x_pos, int y_pos) {
         this.x_pos = x_pos;
+        this.y_pos = y_pos;
     }
 
     public void setPosicion(int x, int y){
