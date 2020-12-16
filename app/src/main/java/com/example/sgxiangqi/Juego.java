@@ -6,13 +6,14 @@ import com.example.sgxiangqi.Pieces.Piece;
 
 public class Juego {
 
-    private boolean turno;
+    private boolean turno, primero;
     private Piece[][] pieces;
     private int FX, FY, SX, SY;
 
     public Juego(){
         pieces = singletonBoard.getNewInstance().getBoard();
         turno = false;
+        primero = false;
         FX = 0;
         FY = 0;
         SX = 0;
@@ -29,10 +30,11 @@ public class Juego {
 
     public void jugada(int XMOVE, int YMOVE){
 
-        if (FX == 0 && FY == 0) {
+        if (primero == false) {
             if(pieces[XMOVE][YMOVE] != null){
                 this.FX = XMOVE;
                 this.FY = YMOVE;
+                this.primero = true;
             }
         } else {
             this.SX = XMOVE;
@@ -95,19 +97,8 @@ public class Juego {
         return possibility;
     }
 
-    public boolean get_side_pieza(int X1, int Y1){
-        if(pieces[X1][Y1].getSide()){
-            //SON NEGRAS
-            return true;
-        } else {
-            //SON ROJAS
-            return false;
-        }
-    }
-
     public boolean jugadaBingZu(int X1, int Y1, int X2, int Y2){
         boolean correcta = false;
-        Log.i("COMPROVAR", "sidePieza: " + get_side_pieza(X1,Y1) + ", turno: " + turno);
 
         if(pieces[X1][Y1].getSide() == true){
             if(pieces[X2][Y2] == null){
@@ -293,6 +284,8 @@ public class Juego {
                     correcta = true;
                 }
             }
+        }else{
+
         }
 
         return correcta;
@@ -415,6 +408,7 @@ public class Juego {
     }
 
     public void cleanJugada(){
+        this.primero = false;
         this.FX = 0;
         this.FY = 0;
         this.SX = 0;

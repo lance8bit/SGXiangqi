@@ -42,8 +42,6 @@ public class FragmentXiangQiBoard extends Fragment implements View.OnClickListen
 
         juego = new Juego();
 
-        Log.i("TURNO", "turno: " + juego.getTurno());
-
         grid = new ArrayList<Button>();
         board = singletonBoard.getNewInstance().getBoard();
 
@@ -86,16 +84,12 @@ public class FragmentXiangQiBoard extends Fragment implements View.OnClickListen
 
         for (int i = 0; i < grid.size(); i++) {
             grid.get(i).getTag();
-            Log.i("TAGBTCLI", ": "+grid.get(i).getTag());
 
             String numberOnly = grid.get(i).getTag().toString();
 
             String[] parts = numberOnly.split("");
             int y_pos = Integer.parseInt(parts[1]);
             int x_pos = Integer.parseInt(parts[0]);
-
-            Log.i("PIECES", "X: "+x_pos);
-            Log.i("PIECES", "Y: "+y_pos);
 
             if(board[x_pos][y_pos] != null){
 
@@ -149,7 +143,6 @@ public class FragmentXiangQiBoard extends Fragment implements View.OnClickListen
                     }
                 }
 
-                Log.i("TRYGETLABEL", "setBackgrounds: "+board[x_pos][y_pos].getLabel());
             } else {
                 grid.get(i).setBackgroundResource(R.drawable.transparent_button);
             }

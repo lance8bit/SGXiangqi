@@ -1,8 +1,6 @@
 package com.example.sgxiangqi.Pieces;
 
-import com.example.sgxiangqi.Position;
-
-public class Piece {
+public abstract class Piece {
     private boolean side;
     private String label;
 
@@ -14,10 +12,6 @@ public class Piece {
 
     public boolean getSide() {
         return side;
-    }
-
-    public void setSide(boolean side) {
-        this.side = side;
     }
 
     public String getLabel() {

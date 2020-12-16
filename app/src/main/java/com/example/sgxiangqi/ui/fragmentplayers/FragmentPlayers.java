@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.sgxiangqi.R;
@@ -25,6 +26,7 @@ public class FragmentPlayers extends Fragment {
 
     private FragmentPlayersViewModel mViewModel;
     private Button btColor1, btColor2, btContinue;
+    private EditText edTxtPlay1, edTxtPlay2;
 
     public static FragmentPlayers newInstance() {
         return new FragmentPlayers();
@@ -38,6 +40,8 @@ public class FragmentPlayers extends Fragment {
         btColor1 = root.findViewById(R.id.buttonPlayer1);
         btColor2 = root.findViewById(R.id.buttonPlayer2);
         btContinue = root.findViewById(R.id.buttonContinue);
+        edTxtPlay1 = root.findViewById(R.id.editTextTextPersonName);
+        edTxtPlay2 = root.findViewById(R.id.editTextTextPersonName2);
 
         btContinue.setOnClickListener(new View.OnClickListener() {
             @Override
