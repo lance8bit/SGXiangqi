@@ -137,7 +137,7 @@ public class Juego {
         boolean correcta = false;
 
         if(pieces[X2][Y2] != null){
-            if(pieces[X2][Y2].getSide() == true && pieces[X1][Y1].getSide() != true || pieces[X2][Y2].getSide() == false && pieces[X1][Y1].getSide() != false){
+            if(pieces[X2][Y2].getSide() != pieces[X1][Y1].getSide()  ){
                 if(X2 == X1){
                     if(Y2 == Y1 - 1){
                         correcta = true;
@@ -181,8 +181,56 @@ public class Juego {
                 }
             }
         }else{
-            if(X2 == X1 || Y2 == Y1){
+            //MOVEMOS EN EJE Y
+            if(X2 == X1){
                 correcta = true;
+                //COMPROVAMOS SI MUEVE UNA O MAS POSICIONES Y
+                if(Y2 > Y1 + 1 || Y2 < Y1 - 1){
+                    if(Y2 > Y1){
+                        for(int i = Y1 + 1; i < Y2; i++){
+                            correcta = true;
+                            if(pieces[X1][i] != null){
+                                //SE ENCUENTRA UNA PIEZA, MOVE INVALID
+                                correcta = false;
+                                break;
+                            }
+                        }
+                    }else{
+                        for (int i = Y2; i < Y1; i++) {
+                            correcta = true;
+                            if(pieces[X1][i] != null){
+                                //SE ENCUENTRA UNA PIEZA, MOVE INVALID
+                                correcta = false;
+                                break;
+                            }
+                        }
+                    }
+                }
+            //MOVEMOS EN EJE X
+            }else if(Y2 == Y1){
+                correcta = true;
+                //COMPROVAMOS SI MUEVE UNA O MAS POSICIONES Y
+                if(X2 > X1 + 1 || X2 < X1 - 1){
+                    if(X2 > X1){
+                        for(int i = X1 + 1; i < X2; i++){
+                            correcta = true;
+                            if(pieces[i][Y1] != null){
+                                //SE ENCUENTRA UNA PIEZA, MOVE INVALID
+                                correcta = false;
+                                break;
+                            }
+                        }
+                    }else{
+                        for (int i = X2; i < X1; i++) {
+                            correcta = true;
+                            if(pieces[i][Y1] != null){
+                                //SE ENCUENTRA UNA PIEZA, MOVE INVALID
+                                correcta = false;
+                                break;
+                            }
+                        }
+                    }
+                }
             }
         }
 
@@ -192,51 +240,54 @@ public class Juego {
     public boolean jugadaJianShuai(int X1, int Y1, int X2, int Y2){
         boolean correcta = false;
 
-        if (pieces[X2][Y2] == null) {
-                //LADO NEGRAS
-            if(X2 > 2 && X2 < 6 && Y2 > 6){
-                if(Y2 == Y1){
-                    if(X2 == X1 + 1 || X2 == X1 - 1){
-                        correcta = true;
-                    }
-                } else if(X2 == X1){
-                    if(Y2 == Y1 + 1 || Y2 == Y1 - 1){
-                        correcta = true;
-                    }
-                } else if(X2 == X1 + 1 && Y2 == Y1 + 1 || X2 == X1 - 1 && Y2 == Y1 - 1 || X2 == X1 + 1 && Y2 == Y1 - 1 || X2 == X1 - 1 && Y2 == Y1 + 1){
+        //CHECK LADO ROJO
+        if(X2 > 2 && X2 < 6){
+            if(Y2 > 6){
+                if(checkJuanShuai(X1, Y1, X2, Y2)){
                     correcta = true;
                 }
-            } else if(X2 > 2 && X2 < 6 && Y2 < 3){
-                //LADO ROJAS
-                if(Y2 == Y1){
-                    if(X2 == X1 + 1 || X2 == X1 - 1){
-                        correcta = true;
-                    }
-                } else if(X2 == X1){
-                    if(Y2 == Y1 + 1 || Y2 == Y1 - 1){
-                        correcta = true;
-                    }
-                } else if(X2 == X1 + 1 && Y2 == Y1 + 1 || X2 == X1 - 1 && Y2 == Y1 - 1 || X2 == X1 + 1 && Y2 == Y1 - 1 || X2 == X1 - 1 && Y2 == Y1 + 1){
+            } else if(Y2 < 3){
+                if(checkJuanShuai(X1, Y1, X2, Y2)){
                     correcta = true;
                 }
-            }
-        } else {
-            if(pieces[X1][Y1].getSide() != pieces[X2][Y2].getSide() ){
-                correcta = true;
             }
         }
 
-        if(pieces[X2][Y2] == null && X2 > 2 && X2 < 6 && X2 == X1 + 1 || X2 > 2 && X2 < 6 && X2 == X1 - 1){
-            // X: 3, 4 y 5
-            if(pieces[X2][Y2] != null  && pieces[X2][Y2].getSide() != pieces[X1][Y1].getSide()){
-                correcta = true;
-            }
+        return correcta;
+    }
 
-        } else if(pieces[X2][Y2] == null && Y2 > 6 && Y2 == Y1 + 1 || Y2 > 6 && Y2 == Y1 - 1){
-            correcta = true;
-            // Y: 7, 8 y 9
-            if(pieces[X2][Y2] != null && pieces[X2][Y2].getSide() != pieces[X1][Y1].getSide()){
-                correcta = true;
+    public boolean checkJuanShuai(int X1, int Y1, int X2, int Y2){
+        boolean correcta = false;
+
+        if(pieces[X2][Y2] != null){
+            if(pieces[X1][Y1].getSide() != pieces[X2][Y2].getSide()){
+                if(X2 == X1){
+                    if(Y2 == Y1 + 1 || Y2 == Y1 - 1){
+                        correcta = true;
+                    }
+                }else if(Y2 == Y1){
+                    if(X2 == X1 + 1 || X2 == X1 - 1){
+                        correcta = true;
+                    }
+                }else{
+                    if(X2 == X1 + 1 && Y2 == Y1 + 1 || X2 == X1 + 1 && Y2 == Y1 - 1 || X2 == X1 - 1 && Y2 == Y1 + 1 || X2 == X1 - 1 && Y2 == Y1 - 1){
+                        correcta = true;
+                    }
+                }
+            }
+        }else{
+            if(X2 == X1){
+                if(Y2 == Y1 + 1 || Y2 == Y1 - 1){
+                    correcta = true;
+                }
+            }else if(Y2 == Y1){
+                if(X2 == X1 + 1 || X2 == X1 - 1){
+                    correcta = true;
+                }
+            }else{
+                if(X2 == X1 + 1 && Y2 == Y1 + 1 || X2 == X1 + 1 && Y2 == Y1 - 1 || X2 == X1 - 1 && Y2 == Y1 + 1 || X2 == X1 - 1 && Y2 == Y1 - 1){
+                    correcta = true;
+                }
             }
         }
 
@@ -246,29 +297,39 @@ public class Juego {
     public boolean jugadaMa(int X1, int Y1, int X2, int Y2){
         boolean correcta = false;
 
-        if(X2 == X1 + 1 && Y2 == Y1 + 2 || X2 == X1 - 1 && Y2 == Y1 + 2 || X2 == X1 - 1 && Y2 == Y1 - 2 || X2 == X1 + 1 && Y2 == Y1 - 2 ){
-            if(pieces[X2][Y2] != null){
-                if(pieces[X1][Y1].getSide() != pieces[X2][Y2].getSide()){
-                    if(X2 == X1 + 1){
-                        if(pieces[X1][Y2 - 1] == null){
-                            correcta = true;
-                        }
-                    } else if(X2 == X1 - 1){
-                        if(pieces[X1][Y2 - 1] == null){
-                            correcta = true;
-                        }
-                    }
+        if(pieces[X2][Y2] != null){
+            if(pieces[X1][Y1].getSide() != pieces[X2][Y2].getSide()){
+                if(checkMa(X1, Y1, X2, Y2)){
+                    correcta = true;
                 }
-            } else {
-                if(X2 == X1 + 1){
-                    if(pieces[X1][Y2 - 1] == null){
-                        correcta = true;
-                    }
-                } else if(X2 == X1 - 1){
-                    if(pieces[X1][Y2 - 1] == null){
-                        correcta = true;
-                    }
-                }
+            }
+        }else{
+            if(checkMa(X1, Y1, X2, Y2)){
+                correcta = true;
+            }
+        }
+
+        return correcta;
+    }
+
+    public boolean checkMa(int X1, int Y1, int X2, int Y2){
+        boolean correcta = false;
+
+        if(Y2 == Y1 + 2 && X2 == X1 + 1){
+            if(pieces[X1][Y1+1] == null){
+                correcta = true;
+            }
+        }else if(Y2 == Y1 + 2 && X2 == X1 - 1){
+            if(pieces[X1][Y1+1] == null){
+                correcta = true;
+            }
+        }else if(Y2 == Y1 - 2 && X2 == X1 + 1){
+            if(pieces[X1][Y1-1] == null){
+                correcta = true;
+            }
+        }else if(Y2 == Y1 - 2 && X2 == X1 - 1){
+            if(pieces[X1][Y1-1] == null){
+                correcta = true;
             }
         }
 
@@ -279,16 +340,99 @@ public class Juego {
         boolean correcta = false;
 
         if(pieces[X2][Y2] != null){
-            if(pieces[X2][Y2].getSide() != pieces[X1][Y1].getSide()){
-                if(X2 == X1 || Y2 == Y1){
-                    correcta = true;
-                }
+            if(beetweenPieces(X1,Y1,X2,Y2)){
+                correcta = true;
             }
         }else{
-
+            correcta = true;
+            if(Y2 > Y1 && X2 == X1){
+                for (int i = Y1 + 1; i < Y2 ; i++) {
+                    if(pieces[X1][i] != null){
+                        correcta = false;
+                        break;
+                    }
+                }
+            } else if(X2 > X1 && Y2 == Y1){
+                for (int i = X1 + 1; i < X2 ; i++) {
+                    if(pieces[i][Y1] != null){
+                        correcta = false;
+                        break;
+                    }
+                }
+            } else if(Y2 < Y1 && X2 == X1){
+                for (int i = Y1 - 1; i > Y2 ; i--) {
+                    if(pieces[X1][i] != null){
+                        correcta = false;
+                        break;
+                    }
+                }
+            } else if(X2 < X1 && Y2 == Y1){
+                for (int i = X1 - 1; i > X2 ; i--) {
+                    if(pieces[i][Y1] != null){
+                        correcta = false;
+                        break;
+                    }
+                }
+            }
         }
 
         return correcta;
+    }
+
+    public boolean beetweenPieces(int X1, int Y1, int X2, int Y2){
+        boolean isIn = false;
+
+        if (Y2 > Y1 && X2 == X1) {
+            int counter = 0;
+
+            for (int i = Y1; i < Y2; i++) {
+                if(pieces[X2][i] != null && pieces[X2][i].getSide() != pieces[X1][Y1].getSide()){
+                    counter++;
+                }
+            }
+
+            if(counter > 1){
+                isIn = true;
+            }
+        }else if(X2 > X1 && Y2 == Y1){
+            int counter = 0;
+
+            for (int i = X1; i < X2; i++) {
+                if(pieces[X2][i] != null && pieces[X2][i].getSide() != pieces[X1][Y1].getSide()){
+                    counter++;
+                }
+            }
+
+            if(counter > 1){
+                isIn = true;
+            }
+        }else if(Y2 < Y1 && X2 == X1){
+            int counter = 0;
+
+            for (int i = Y1; i > Y2; i--) {
+                if(pieces[X2][i] != null && pieces[X2][i].getSide() != pieces[X1][Y1].getSide()){
+                    counter++;
+                }
+            }
+
+            if(counter > 0){
+                isIn = true;
+            }
+        }else if(X2 < X1 && Y2 == Y1){
+            int counter = 0;
+
+            for (int i = X1; i > X2; i--) {
+                if(pieces[i][Y2] != null && pieces[X2][i].getSide() != pieces[X1][Y1].getSide()){
+                    counter++;
+                }
+            }
+
+            if(counter > 0){
+                isIn = true;
+            }
+        }
+
+        return isIn;
     }
 
     public boolean jugadaShi(int X1, int Y1, int X2, int Y2){
